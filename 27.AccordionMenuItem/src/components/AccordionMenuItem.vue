@@ -13,15 +13,15 @@
         checked && 'text-green-500',
         'transition-all'
       ]">
-        選項
+      {{ itemName }}  
       </div>
       <div :class="[
+        checked && '-rotate-180',
         'w-9 h-9',
         'hover:bg-gray-100',
         'rounded-full',
         'flex justify-center items-center',
         'transition-all',
-        checked && '-rotate-180'
       ]">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="[
           'h-6 w-6',
@@ -29,15 +29,20 @@
         ]">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
-
       </div>
     </label>
     <div :class="[
+      checked ? 'max-h-[300px]' : 'max-h-0',
       'border border-t-0 border-gray-300',
       'transition-all overflow-hidden',
-      checked ? 'max-h-[300px]' : 'max-h-0'
     ]">
-      <div class="p-4 text-gray-600">內容</div>
+      <slot name="itemContent">
+        <div class="p-4 text-gray-600">
+          <slot name="itemText">
+            內容
+          </slot>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -45,12 +50,16 @@
 <script>
   export default {
     name: "AccordionMenuItem",
+    props: {
+      itemName: {
+        default: "選項",
+      }
+    },
     data() {
       return{
         checked: false,
       }
-    }
-
+    },
   }
 
 

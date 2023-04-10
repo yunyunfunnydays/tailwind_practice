@@ -5,6 +5,7 @@
     'justify-center item-center'
     ]
   ">
+    <SimpleCalendar></SimpleCalendar>
   </div>
 </template>
 

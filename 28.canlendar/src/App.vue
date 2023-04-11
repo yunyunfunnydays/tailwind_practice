@@ -1,7 +1,7 @@
 <template>
   <div :class="[
     'w-screen h-screen',
-    'flex',
+    'flex items-center',
     'justify-center item-center'
     ]
   ">

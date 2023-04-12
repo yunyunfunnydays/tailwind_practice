@@ -14,6 +14,8 @@
       </div>
       <div :class="['w-10 h-10',
        'text-sm flex justify-center items-center',
+       (year === today.getFullYear() && month-1 === today.getMonth() && d === today.getDate()) ? 'bg-blue-600 text-white font-bold' :'hover:bg-gray-200',
+       'rounded-full'
        ]"
         v-for=" d in thisMonth" :key="d">
         {{ d }}
@@ -32,7 +34,7 @@ export default {
     return {
       weekDays: ['Su','Mo','Tu','We','Th','Fr','Sa'],
       year: 2021,
-      month: 9,
+      month: 12,
       today: new Date(),
     }
   },
@@ -69,6 +71,11 @@ export default {
       }
       return days;
     }
+  },
+  mounted () {
+    this.today = new Date();
+    this.year = this.today.getFullYear();
+    this.month = this.today.getMonth() + 1;
   }
 }
 </script>

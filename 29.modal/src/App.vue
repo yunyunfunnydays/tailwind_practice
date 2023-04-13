@@ -2,9 +2,7 @@
   <div :class="[
     'w-screen h-screen',
     'p-5',
-    'bg-red-200'
   ]">
-    b
     <Modal>
       
     </Modal>
